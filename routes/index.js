@@ -41,6 +41,9 @@ router.get(
       "http://fake-hotel-api.herokuapp.com/api/hotels"
     );
     let hotels = hotelsRes.data;
+    
+    // TODO: add some error handling (mainly to handle the axios req)
+    // TODO?: see if any further error handling is needed
 
     // * Filter the hotels by the criteria from the query params
     let filteredHotels = hotels.filter(hotel => hotelFilter(req.query, hotel));
