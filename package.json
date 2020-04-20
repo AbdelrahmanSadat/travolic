@@ -4,7 +4,8 @@
   "private": true,
   "scripts": {
     "start": "node ./bin/www",
-    "dev": "nodemon ./bin/www"
+    "dev": "nodemon ./bin/www",
+    "test": "mocha"
   },
   "dependencies": {
     "axios": "^0.19.2",
@@ -16,6 +17,9 @@
     "validator": "^13.0.0"
   },
   "devDependencies": {
-    "nodemon": "^2.0.3"
+    "chai": "^4.2.0",
+    "mocha": "^7.1.1",
+    "nodemon": "^2.0.3",
+    "supertest": "^4.0.2"
   }
 }

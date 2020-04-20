@@ -1,0 +1,76 @@
+[
+  {
+    "id": "7111ad11-6d2b-4bd1-9189-b4ca602cbccb",
+    "name": "The Hilton",
+    "country": "Guinea-Bissau",
+    "city": "vienna",
+    "price": 100,
+    "images": [
+      "http://lorempixel.com/640/480/city?31800",
+      "http://lorempixel.com/640/480/city?53238",
+      "http://lorempixel.com/640/480/city?99668",
+      "http://lorempixel.com/640/480/city?30211",
+      "http://lorempixel.com/640/480/city?92212"
+    ],
+    "date_start": "2020-04-09T02:33:18.252Z",
+    "date_end": "2020-11-18T11:45:46.432Z",
+    "stars": 1,
+    "rating": 1.0792225176789172,
+    "description": "Recusandae aspernatur consequatur cupiditate molestiae molestiae labore ut. Eligendi commodi ullam expedita amet natus autem. Aperiam velit similique quis ut rerum sint ex. Ut ut harum est ea mollitia quo dolor iusto voluptatem. Non autem maxime deleniti culpa."
+  },
+  {
+    "id": "346b5d56-7630-47f7-bd52-f0afd92d041c",
+    "name": "facilis exercitationem veniam",
+    "country": "Mauritius",
+    "city": "Scarlettborough",
+    "price": 401,
+    "images": [
+      "http://lorempixel.com/640/480/city?25723",
+      "http://lorempixel.com/640/480/city?68599",
+      "http://lorempixel.com/640/480/city?15900",
+      "http://lorempixel.com/640/480/city?8554",
+      "http://lorempixel.com/640/480/city?48772",
+      "http://lorempixel.com/640/480/city?2345",
+      "http://lorempixel.com/640/480/city?35525"
+    ],
+    "date_start": "2020-04-09T02:33:18.252Z",
+    "date_end": "2020-11-20T02:38:26.670Z",
+    "stars": 3,
+    "rating": 5.099306385552874,
+    "description": "Fugit qui totam perferendis sit. Voluptatibus velit esse. Sint et magnam pariatur pariatur est. Sint officiis rerum aliquid omnis quia quibusdam fuga placeat. Aut nulla unde ea. In ea temporibus et voluptate vel modi aut aut."
+  },
+  {
+    "id": "0437ac1a-8a06-4f1a-8f74-2c152f34ec80",
+    "name": "atque libero id",
+    "country": "Angola",
+    "city": "West Parker",
+    "price": 412,
+    "images": [
+      "http://lorempixel.com/640/480/city?54196"
+    ],
+    "date_start": "2020-04-09T02:33:18.252Z",
+    "date_end": "2020-05-24T17:25:40.538Z",
+    "stars": 2,
+    "rating": 5.537918979120741,
+    "description": "Aut aliquam ea accusantium cum sunt sit. Reiciendis assumenda voluptates fugiat non voluptatem. Explicabo ut magnam provident voluptatem. Suscipit aut quia praesentium recusandae. Atque adipisci sapiente maxime. Ipsa qui ut eligendi."
+  },
+  {
+    "id": "aee59c63-38f0-428e-9bbb-9bc13d74ed9b",
+    "name": "quam dignissimos odit",
+    "country": "Republic of Korea",
+    "city": "Macietown",
+    "price": 462,
+    "images": [
+      "http://lorempixel.com/640/480/city?70965",
+      "http://lorempixel.com/640/480/city?62813",
+      "http://lorempixel.com/640/480/city?17927",
+      "http://lorempixel.com/640/480/city?89648",
+      "http://lorempixel.com/640/480/city?35120"
+    ],
+    "date_start": "2020-04-09T02:33:18.252Z",
+    "date_end": "2021-02-14T10:28:47.483Z",
+    "stars": 4,
+    "rating": 0.434091382420271,
+    "description": "Et eos eum consequatur qui. Dignissimos inventore vel nostrum. Repellat officia molestiae. Eveniet nihil voluptas sequi aut et saepe. Officiis sit praesentium beatae quaerat inventore qui ratione."
+  }
+]
