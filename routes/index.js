@@ -7,26 +7,32 @@ let hotelFilter = require("../helpers/hotelFilter");
 
 let router = express.Router();
 
-// TODO?: consider using some sort of cache for the api requrest
-// ? when fetchig all the hotels (e.g: redis???)
-
-// ? asynchrony in filtering and sorting to avoid blocking?
-
 /* GET home page. */
 router.get(
   "/hotels",
   asyncMiddleware(async function(req, res, next) {
     // * Use query params for filtering and sorting criteria
-    
-    // TODO: Validate the query params
-    // respond with the appropriate code for invalid input
-    // 
-    let filter = req.query;
-    if(filter.startDate)
-      filter.startDate = new Date(req.query.startDate);
-    if(filter.endDate)
-      filter.endDate = new Date(req.query.endDate);
+    // expects optional query string of name, city, date_start,
+    // date_end, lowestPrice, & highest price
 
+    // * Validate the query params
+    // TODO: move to separate function
+    if (req.query.date_start && !validator.isISO8601(req.query.date_start))
+      return res.status(400).send("date_start must be an ISO8601 date");
+
+    if (req.query.date_end && !validator.isISO8601(req.query.date_end))
+      return res.status(400).send("date_end must be an ISO8601 date");
+
+    if (req.query.lowestPrice && !validator.isNumeric(req.query.lowestPrice))
+      return res.status(400).send("lowestPrice must be numeric");
+
+    if (req.query.highestPrice && !validator.isNumeric(req.query.highestPrice))
+      return res.status(400).send("highestPrice must be numeric");
+
+    let filter = req.query;
+    // TODO: move this to the hotelFilter function
+    filter.startDate = new Date(filter.date_start);
+    filter.startDate = new Date(filter.date_end);
 
     // * Fetch all the hotels from their api endpoint
     let hotelsRes = await axios.get(
@@ -38,7 +44,7 @@ router.get(
     let filteredHotels = hotels.filter(hotel => hotelFilter(filter, hotel));
 
     // * Sort the filterd values according to the given sort param
-    let sortedHotels = _.sortBy(filteredHotels, [req.query.sortBy])
+    let sortedHotels = _.sortBy(filteredHotels, [filter.sortBy]);
 
     // TODO: try and optimize filtering and sorting
 
