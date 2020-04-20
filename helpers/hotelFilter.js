@@ -21,10 +21,10 @@ function hotelFilter(filter, hotel) {
     (filter.city
       ? filter.city.toLowerCase() === hotel.city.toLowerCase()
       : true) &&
-    (filter.lowestPrice ? filter.lowestPrice < hotel.price : true) &&
-    (filter.highestPrice ? filter.highestPrice > hotel.price : true) &&
-    (filter.date_start? new Date(filter.date_start) > new Date(hotel.date_start): true)&&
-    (filter.date_end? new Date(filter.date_end) < new Date(hotel.date_end): true)
+    (filter.lowestPrice ? filter.lowestPrice <= hotel.price : true) &&
+    (filter.highestPrice ? filter.highestPrice >= hotel.price : true) &&
+    (filter.date_start? new Date(filter.date_start) >= new Date(hotel.date_start): true)&&
+    (filter.date_end? new Date(filter.date_end) <= new Date(hotel.date_end): true)
   )
     return true;
 
