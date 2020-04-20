@@ -2,9 +2,10 @@ const express = require("express");
 const axios = require("axios");
 const validator = require("validator");
 const _ = require("lodash");
+const appRoot = require("app-root-path");
 
-let asyncMiddleware = require("../middleware/asyncMiddleware");
-let hotelFilter = require("../helpers/hotelFilter");
+let asyncMiddleware = require(appRoot + "/middleware/asyncMiddleware");
+let hotelFilter = require(appRoot + "/helpers/hotelFilter");
 
 let router = express.Router();
 
@@ -41,7 +42,7 @@ router.get(
       "http://fake-hotel-api.herokuapp.com/api/hotels"
     );
     let hotels = hotelsRes.data;
-    
+
     // TODO: add some error handling (mainly to handle the axios req)
     // TODO?: see if any further error handling is needed
 
