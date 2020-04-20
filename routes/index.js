@@ -13,8 +13,7 @@ router.get(
   asyncMiddleware(async function(req, res, next) {
     // * Use query params for filtering and sorting criteria
     // expects optional query string of name, city, date_start,
-    // date_end, lowestPrice, & highest price
-    // TODO: validate sortBy
+    // date_end, lowestPrice, highest price, & sortBy
 
     // * Validate the query params
     // TODO: move to separate function
@@ -30,6 +29,11 @@ router.get(
     if (req.query.highestPrice && !validator.isNumeric(req.query.highestPrice))
       return res.status(400).send("highestPrice must be numeric");
 
+    if (
+      req.query.sortBy &&
+      !(req.query.sortBy == "price" || req.query.sortBy == "name")
+    )
+      return res.status(400).send("sortBy must be one of 'price' or 'name'");
 
     // * Fetch all the hotels from their api endpoint
     let hotelsRes = await axios.get(
