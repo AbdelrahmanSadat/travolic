@@ -1,11 +1,13 @@
-// @ filter: object with optional keys of name, city, startDate,
-// @  endDate, lowestPrice, highestPrice
+// @ filter: object with optional keys of name, city, date_start,
+// @  date_end, lowestPrice, highestPrice where date_start and
+// @  date_end are date objects and the rest are strings
 // @ hotel: object with required keys name, city, date_start,
-// @  date_end, price
+// @  date_end, price where date_start and date_end are ISO8601
+// @  dates; and rest are strings
 // * returns true if the hotel matches the filter
 function hotelFilter(filter, hotel) {
   // TODO?: use regex for case matching & better string matching or
-  // TODO?: assume the query string to be properly capitalized or
+  // TODO?: assume the query string to be properly capitalized
 
   // TODO: refactor
   if (
@@ -19,14 +21,10 @@ function hotelFilter(filter, hotel) {
     (filter.city
       ? filter.city.toLowerCase() === hotel.city.toLowerCase()
       : true) &&
-    (filter.lowestPrice && filter.hightesPrice
-      ? filter.lowestPrice < hotel.price &&
-        filter.highestPrice > hotel.lowestPrice
-      : true) &&
-    (filter.startDate && filter.endDate
-      ? filter.startDate > new Date(hotel.startDate) &&
-        filter.endDate < new Date(hotel.endDate)
-      : true)
+    (filter.lowestPrice ? filter.lowestPrice < hotel.price : true) &&
+    (filter.highesPrice ? filter.highesPrice > hotel.price : true) &&
+    (filter.date_start? new Date(filter.date_start) > new Date(hotel.date_start): true)&&
+    (filter.date_end? new Date(filter.date_end) < new Date(hotel.date_end): true)
   )
     return true;
 

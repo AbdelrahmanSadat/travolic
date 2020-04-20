@@ -14,6 +14,7 @@ router.get(
     // * Use query params for filtering and sorting criteria
     // expects optional query string of name, city, date_start,
     // date_end, lowestPrice, & highest price
+    // TODO: validate sortBy
 
     // * Validate the query params
     // TODO: move to separate function
@@ -29,10 +30,6 @@ router.get(
     if (req.query.highestPrice && !validator.isNumeric(req.query.highestPrice))
       return res.status(400).send("highestPrice must be numeric");
 
-    let filter = req.query;
-    // TODO: move this to the hotelFilter function
-    filter.startDate = new Date(filter.date_start);
-    filter.startDate = new Date(filter.date_end);
 
     // * Fetch all the hotels from their api endpoint
     let hotelsRes = await axios.get(
@@ -41,10 +38,10 @@ router.get(
     let hotels = hotelsRes.data;
 
     // * Filter the hotels by the criteria from the query params
-    let filteredHotels = hotels.filter(hotel => hotelFilter(filter, hotel));
+    let filteredHotels = hotels.filter(hotel => hotelFilter(req.query, hotel));
 
     // * Sort the filterd values according to the given sort param
-    let sortedHotels = _.sortBy(filteredHotels, [filter.sortBy]);
+    let sortedHotels = _.sortBy(filteredHotels, [req.query.sortBy]);
 
     // TODO: try and optimize filtering and sorting
 
