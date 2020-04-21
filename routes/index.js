@@ -9,7 +9,6 @@ let hotelFilter = require(appRoot + "/helpers/hotelFilter");
 
 let router = express.Router();
 
-/* GET home page. */
 router.get(
   "/hotels",
   asyncMiddleware(async function(req, res, next) {
@@ -38,12 +37,13 @@ router.get(
       return res.status(400).send("sortBy must be one of 'price' or 'name'");
 
     // * Fetch all the hotels from their api endpoint
-    let hotelsRes = await axios.get(
-      "http://fake-hotel-api.herokuapp.com/api/hotels"
-    );
+    let hotelsRes = await axios
+      .get("http://fake-hotel-api.herokuapp.com/api/hotels")
+      .catch(err =>
+        res.status(424).send("An error occured trying to reach the hotels endpoint")
+      );
     let hotels = hotelsRes.data;
 
-    // TODO: add some error handling (mainly to handle the axios req)
     // TODO?: see if any further error handling is needed
 
     // * Filter the hotels by the criteria from the query params
@@ -56,6 +56,14 @@ router.get(
 
     // * Serialize to json and send in the response
     res.json(sortedHotels);
+  })
+);
+
+/* GET home page. */
+router.get(
+  "",
+  asyncMiddleware(async function(req, res, next) {
+    res.send("Hello :)");
   })
 );
 
