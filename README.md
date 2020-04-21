@@ -33,6 +33,7 @@ To run in production:
 ```sh
 $ yarn run start
 ```
+The app runs on port 3000 by default
 
 ## Test
 
@@ -75,3 +76,7 @@ _ISO8601 Date_
 ### **sortBy**
 
 One of "_name_" or "_price_"
+
+## Example
+
+*localhost:3000/hotels?city=cairo&highestPrice=1000&date_start=2020-04-09T02:33:18.252Z*
