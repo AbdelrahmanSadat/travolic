@@ -17,18 +17,21 @@ function hotelFilter(filter, hotel) {
   // TODO?: use regex for case matching & better string matching or
   // TODO?: assume the query string to be properly capitalized
 
+  let r = true;
+
+  if (filter.name && !ciCompare(filter.name, hotel.name)) r = false;
+  if (filter.city && !ciCompare(filter.city, hotel.city)) r = false;
+  if (filter.lowestPrice && filter.lowestPrice > hotel.price) r = false;
+  if (filter.highestPrice && filter.highestPrice < hotel.price) r = false;
   if (
-    (filter.name && !ciCompare(filter.name, hotel.name)) ||
-    (filter.city && !ciCompare(filter.city, hotel.city)) ||
-    (filter.lowestPrice && filter.lowestPrice > hotel.price) ||
-    (filter.highestPrice && filter.highestPrice < hotel.price) ||
-    (filter.date_start && new Date(filter.date_start) < new Date(hotel.date_start)) ||
-    (filter.date_end && new Date(filter.date_end) > new Date(hotel.date_end))
+    filter.date_start &&
+    new Date(filter.date_start) < new Date(hotel.date_start)
   )
-    return false;
+    r = false;
+  if (filter.date_end && new Date(filter.date_end) > new Date(hotel.date_end))
+    r = false;
 
-  return true;
+  return r;
 }
-
 
 module.exports = hotelFilter;
