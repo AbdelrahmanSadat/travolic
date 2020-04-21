@@ -14,7 +14,8 @@ function hotelsRouteTests() {
       done();
     });
 
-    afterEach(function(done) {
+    afterEach(function (done) {
+      this.timeout(5000);
       server.close(err => {
         if (err) done(Error("Something went wrong closing the server"));
         console.log("Server closed successfully");
@@ -23,7 +24,7 @@ function hotelsRouteTests() {
     });
 
     describe("Hotels Endpoint", function() {
-      this.timeout(5000);
+      this.timeout(10000);
 
       // Called once before any of the tests in this block begin.
 
