@@ -4,6 +4,12 @@
 [![Maintainability](https://api.codeclimate.com/v1/badges/16625ecb7ed48cee0d4b/maintainability)](https://codeclimate.com/github/AbdelrahmanSadat/travolic/maintainability)
 <!-- [![Test Coverage](https://api.codeclimate.com/v1/badges/16625ecb7ed48cee0d4b/test_coverage)](https://codeclimate.com/github/AbdelrahmanSadat/travolic/test_coverage) -->
 
+## Try It!
+
+The app is deployed to heroku at *"https://travolic-task.herokuapp.com"*.
+
+Head over to *"https://travolic-task.herokuapp.com/hotels"* and check the usage section for more details.
+
 ## Install
 
 Clone The Repo:
@@ -78,5 +84,7 @@ _ISO8601 Date_
 One of "_name_" or "_price_"
 
 ## Example
+
+*https://travolic-task.herokuapp.com/hotels?lowestPrice=800&date_end=2020-04-10T02:33:18.252Z*
 
 *localhost:3000/hotels?city=cairo&highestPrice=1000&date_start=2020-04-09T02:33:18.252Z*
